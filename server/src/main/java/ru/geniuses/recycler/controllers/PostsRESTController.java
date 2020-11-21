@@ -8,12 +8,12 @@ import ru.geniuses.recycler.services.PostService;
 
 @RestController
 @RequestMapping("posts")
-public class PostAPI {
+public class PostsRESTController {
 
     private final PostService postService;
 
     @Autowired
-    public PostAPI(PostService postService) {
+    public PostsRESTController(PostService postService) {
         this.postService = postService;
     }
 
