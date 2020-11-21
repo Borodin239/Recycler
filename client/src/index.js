@@ -4,6 +4,33 @@ import ReactMarkdown from 'react-markdown'
 import './index.css';
 import axios from "axios";
 
+function NavBtn(props) {
+    return (<button
+        className={"navBtn " + (props.active ? "navBtnSelected" : "navBtnNotSelected")}
+        onClick={props.onClick}>
+        {props.value}</button>);
+}
+
+class NavBar extends React.Component {
+    renderBtn(i, text_){
+        return (
+            <NavBtn value={text_} active={this.props.selected === i} onClick={() => this.props.onClick(i)}/>
+        )
+    }
+
+    render() {
+        return (
+            <div id="navBar">
+                <h1>Resycle</h1>
+                {this.renderBtn(0, "News")}
+                {this.renderBtn(1, "Map")}
+                {this.renderBtn(2, "Info")}
+            </div>
+        )
+    }
+
+}
+
 
 class Post extends React.Component {
     constructor(props){
@@ -53,8 +80,54 @@ class Feed extends React.Component {
     }
 }
 
+class Map extends React.Component{
+    render() {
+        return (<p>Map</p>)
+    }
+}
+
+class Info extends React.Component{
+    render() {
+        return (<p>Info</p>)
+    }
+}
+
+class Page extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selected: 0,
+        };
+    }
+
+    handleClick(i){
+        if (i !== this.state.selected) {
+            this.setState({selected: i})
+        }
+    }
+
+    render() {
+        let content;
+        switch (this.state.selected) {
+            case 0:
+                content = <Feed/>;
+                break;
+            case 1:
+                content = <Map/>;
+                break;
+            case 2:
+                content = <Info/>;
+        }
+        return (
+            <div className="page">
+                <NavBar selected={this.state.selected} onClick={(i) => this.handleClick(i)}/>
+                {content}
+            </div>
+        )
+    }
+}
 
 ReactDOM.render(
-    <Feed/>,
+    <Page/>,
     document.getElementById('root')
 );
