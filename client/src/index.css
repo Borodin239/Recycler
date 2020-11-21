@@ -26,8 +26,19 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);;
 }
 
-#header {
+#navBar {
   background-color: green;
   min-height: 100px;
   width: 100%;
+}
+
+
+
+.navBtnNotSelected {
+  background-color: aliceblue;
+
+}
+
+.navBtnSelected {
+  background-color: darkslateblue;
 }
