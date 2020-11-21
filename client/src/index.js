@@ -138,10 +138,10 @@ class Marker extends React.Component {
     static defaultProps = {
         style: {
             position: 'absolute',
-            width: 10,
-            height: 10,
-            left: -10 / 2,
-            top: -10 / 2,
+            width: 15,
+            height: 15,
+            left: -15 / 2,
+            top: -15 / 2,
 
             border: '2px solid #ffffff',
             borderRadius: 40,
@@ -172,7 +172,38 @@ function InfoBlock (props) {
     );
 }
 
-class Info extends React.Component {
+class Info extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            isFetching: false,
+            text: "",
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    fetchInfo = () => {
+        this.setState({...this.state, isFetching: true});
+        axios.get("http://localhost:8000/info")
+            .then(response => this.setState({data: response.data,
+                isFetching: false}))
+            .catch(e => console.log(e));
+    }
+
+    dynamicSearch = () => {
+        return this.state.data.filter(
+            block => (block.title.toLowerCase() + block.text.toLowerCase()).includes(this.state.text.toLowerCase()));
+    }
+
+    componentDidMount() {
+        this.fetchInfo();
+    }
+
+    handleChange(e) {
+        this.setState({text: e.target.value});
+    }
+
     render() {
         return (
             <div id="content">
@@ -194,9 +225,9 @@ class Page extends React.Component {
         };
     }
 
-    handleClick(i) {
+    handleClick(i){
         if (i !== this.state.selected) {
-            this.setState({ selected: i })
+            this.setState({selected: i})
         }
     }
 
@@ -204,13 +235,13 @@ class Page extends React.Component {
         let content;
         switch (this.state.selected) {
             case 0:
-                content = <Feed />;
+                content = <Feed/>;
                 break;
             case 1:
-                content = <Map />;
+                content = <Map/>;
                 break;
             case 2:
-                content = <Info />;
+                content = <Info/>;
         }
         return (
             <div id="page">
@@ -222,6 +253,6 @@ class Page extends React.Component {
 }
 
 ReactDOM.render(
-    <Page />,
+    <Page/>,
     document.getElementById('root')
 );
