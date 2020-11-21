@@ -21,10 +21,12 @@ class NavBar extends React.Component {
     render() {
         return (
             <div id="navBar">
-                <h1>Resycle</h1>
+                <h2>Resycle</h2>
+                <div id="navBtns">
                 {this.renderBtn(0, "News")}
                 {this.renderBtn(1, "Map")}
                 {this.renderBtn(2, "Info")}
+                </div>
             </div>
         )
     }
@@ -72,7 +74,7 @@ class Feed extends React.Component {
 
     render(){
         return (
-            <div className="feed">
+            <div id="content">
                 <p>{this.state.isFetching ? "Loading" : ""}</p>
                 {this.state.posts.map(post => (<Post content={post.content} key={post.id}/>))}
             </div>
@@ -82,13 +84,19 @@ class Feed extends React.Component {
 
 class Map extends React.Component{
     render() {
-        return (<p>Map</p>)
+        return (
+            <div id="content">
+                <p>Map</p>
+            </div>)
     }
 }
 
 class Info extends React.Component{
     render() {
-        return (<p>Info</p>)
+        return (
+            <div id="content">
+                <p>Info</p>
+            </div>)
     }
 }
 
@@ -119,7 +127,7 @@ class Page extends React.Component {
                 content = <Info/>;
         }
         return (
-            <div className="page">
+            <div id="page">
                 <NavBar selected={this.state.selected} onClick={(i) => this.handleClick(i)}/>
                 {content}
             </div>
