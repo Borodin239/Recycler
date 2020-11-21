@@ -74,7 +74,6 @@ class Feed extends React.Component {
         this.fetchPosts();
     }
 
-
     render() {
         return (
             <div id="content">
@@ -82,60 +81,6 @@ class Feed extends React.Component {
                 {this.state.posts.map(post => (<Post content={post.content} key={post.id} />))}
             </div>
         )
-    }
-}
-
-class Map extends React.Component {
-    static defaultProps = {
-        center: {
-            lat: 59.95,
-            lng: 30.33
-        },
-        zoom: 11
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            marks: [],
-        };
-    }
-
-    fethcMarks = () => {
-        axios.get("http://localhost:8000/mapmarks")
-            .then(response => this.setState({
-                marks: response.data,
-            }))
-            .catch(e => console.log(e));
-    }
-
-    componentDidMount() {
-        this.fethcMarks();
-    }
-
-    render() {
-        return (
-            <div className="content_map">
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "" }}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}>
-                    {this.state.marks.map(mark => (<Marker
-                                                        lat={mark.x}
-                                                        lng={mark.y}
-                                                    />))}
-                </GoogleMapReact>
-            </div>
-        );
-    }
-}
-
-
-class Marker extends React.Component {
-    render() {
-        return (
-            <div className="marker"></div>
-        );
     }
 }
 
@@ -217,7 +162,9 @@ class Page extends React.Component {
                 content = <Feed/>;
                 break;
             case 1:
-                content = <Map/>;
+                content =   <div id="map">
+                                <iframe src="https://recyclemap.ru" allowFullScreen/>
+                            </div>;
                 break;
             case 2:
                 content = <Info/>;
