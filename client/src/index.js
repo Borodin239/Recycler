@@ -91,11 +91,59 @@ class Map extends React.Component{
     }
 }
 
+function InfoBlock (props) {
+    return (
+        <div className="infoBlock">
+            <img src={props.image} alt={props.title}/>
+            <div className="infoText">
+                <h2>{props.title}</h2>
+                <p>{props.text}</p>
+            </div>
+        </div>
+    );
+}
+
 class Info extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            isFetching: false,
+            text: "",
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    fetchInfo = () => {
+        this.setState({...this.state, isFetching: true});
+        axios.get("http://localhost:8000/info")
+            .then(response => this.setState({data: response.data,
+                isFetching: false}))
+            .catch(e => console.log(e));
+    }
+
+    dynamicSearch = () => {
+        return this.state.data.filter(
+            block => (block.title.toLowerCase() + block.text.toLowerCase()).includes(this.state.text.toLowerCase()));
+    }
+
+    componentDidMount() {
+        this.fetchInfo();
+    }
+
+    handleChange(e) {
+        this.setState({text: e.target.value});
+    }
+
     render() {
         return (
             <div id="content">
-                <p>Info</p>
+                <p>Тут вы можете найти информацию по интересующей вас экологической организации, по значку,
+                    обозначающему тип переработки, или же информацию о утилизации и переработки любых материалов.</p>
+                <input type="text" placeholder="Search" value={this.state.text} onChange={this.handleChange}/>
+                {this.dynamicSearch().map(
+                    block =>
+                    (<InfoBlock key={block.key} image={block.image} title={block.title} text={block.text}/>))}
             </div>)
     }
 }
