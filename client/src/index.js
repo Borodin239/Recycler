@@ -102,7 +102,6 @@ class Map extends React.Component {
     }
 
     fethcMarks = () => {
-
         axios.get("http://localhost:8000/mapmarks")
             .then(response => this.setState({
                 marks: response.data,
@@ -116,12 +115,11 @@ class Map extends React.Component {
 
     render() {
         return (
-            <div style={{ height: '100vh', width: '100%' }}>
+            <div className="content_map">
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "" }}
                     defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
-                >
+                    defaultZoom={this.props.zoom}>
                     {this.state.marks.map(mark => (<Marker
                                                         lat={mark.x}
                                                         lng={mark.y}
@@ -133,29 +131,10 @@ class Map extends React.Component {
 }
 
 
-
 class Marker extends React.Component {
-    static defaultProps = {
-        style: {
-            position: 'absolute',
-            width: 15,
-            height: 15,
-            left: -15 / 2,
-            top: -15 / 2,
-
-            border: '2px solid #ffffff',
-            borderRadius: 40,
-            backgroundColor: 'green',
-            textAlign: 'center',
-            color: '#3f51b5',
-            fontSize: 16,
-            fontWeight: 'bold',
-            padding: 1
-        }
-    }
     render() {
         return (
-            <div style={this.props.style}></div>
+            <div className="marker"></div>
         );
     }
 }

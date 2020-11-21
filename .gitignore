@@ -84,3 +84,4 @@ nb-configuration.xml
 .DS_Store
 
 client/node_modules
+client/__pycache__/server.cpython-38.pyc
