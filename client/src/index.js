@@ -116,7 +116,6 @@ class Map extends React.Component {
 
     render() {
         return (
-<<<<<<< HEAD
             <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "" }}
@@ -161,14 +160,6 @@ class Marker extends React.Component {
     }
 }
 
-class Info extends React.Component {
-=======
-            <div id="content">
-                <p>Map</p>
-            </div>)
-    }
-}
-
 function InfoBlock (props) {
     return (
         <div className="infoBlock">
@@ -181,39 +172,7 @@ function InfoBlock (props) {
     );
 }
 
-class Info extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            isFetching: false,
-            text: "",
-        }
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    fetchInfo = () => {
-        this.setState({...this.state, isFetching: true});
-        axios.get("http://localhost:8000/info")
-            .then(response => this.setState({data: response.data,
-                isFetching: false}))
-            .catch(e => console.log(e));
-    }
-
-    dynamicSearch = () => {
-        return this.state.data.filter(
-            block => (block.title.toLowerCase() + block.text.toLowerCase()).includes(this.state.text.toLowerCase()));
-    }
-
-    componentDidMount() {
-        this.fetchInfo();
-    }
-
-    handleChange(e) {
-        this.setState({text: e.target.value});
-    }
-
->>>>>>> a1ecd498a6ba2e6f7acd833233cbaa3b725db57d
+class Info extends React.Component {
     render() {
         return (
             <div id="content">
@@ -254,13 +213,8 @@ class Page extends React.Component {
                 content = <Info />;
         }
         return (
-<<<<<<< HEAD
-            <div className="page">
-                <NavBar selected={this.state.selected} onClick={(i) => this.handleClick(i)} />
-=======
             <div id="page">
                 <NavBar selected={this.state.selected} onClick={(i) => this.handleClick(i)}/>
->>>>>>> a1ecd498a6ba2e6f7acd833233cbaa3b725db57d
                 {content}
             </div>
         )
