@@ -59,7 +59,7 @@ class Feed extends React.Component {
     }
     fetchPosts = () => {
         this.setState({ ...this.state, isFetching: true });
-        axios.get("http://localhost:8000/posts")
+        axios.get("https://resycler.herokuapp.com/posts")
             .then(response => this.setState({
                 posts: response.data,
                 isFetching: false
@@ -106,7 +106,7 @@ class Info extends React.Component{
 
     fetchInfo = () => {
         this.setState({...this.state, isFetching: true});
-        axios.get("http://localhost:8000/info")
+        axios.get("https://resycler.herokuapp.com/info")
             .then(response => this.setState({data: response.data,
                 isFetching: false}))
             .catch(e => console.log(e));
