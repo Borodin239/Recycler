@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown'
 import axios from "axios";
+// created by flydzen
 
 function NavBtn(props) {
     return (
@@ -59,7 +60,7 @@ class Feed extends React.Component {
     }
     fetchPosts = () => {
         this.setState({ ...this.state, isFetching: true });
-        axios.get("http://localhost:8000/posts")
+        axios.get("https://resycler.herokuapp.com/posts")
             .then(response => this.setState({
                 posts: response.data,
                 isFetching: false
@@ -106,7 +107,7 @@ class Info extends React.Component{
 
     fetchInfo = () => {
         this.setState({...this.state, isFetching: true});
-        axios.get("http://localhost:8000/info")
+        axios.get("https://resycler.herokuapp.com/info")
             .then(response => this.setState({data: response.data,
                 isFetching: false}))
             .catch(e => console.log(e));
@@ -160,7 +161,7 @@ class Page extends React.Component {
                 break;
             case 1:
                 content = <div id="map" className="main-content w-col w-col-9">
-                            <iframe src="https://recyclemap.ru" allowFullScreen/>
+                            <iframe src="https://recyclemap.ru/spb" allowFullScreen/>
                           </div>;
                 break;
             case 2:

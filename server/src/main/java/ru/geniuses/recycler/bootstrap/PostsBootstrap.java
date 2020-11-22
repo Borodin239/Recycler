@@ -29,78 +29,124 @@ public class PostsBootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        Post post1 = new Post();
-        post1.setContent("Content of Post 1");
-        post1.setTitle("Title of Post 1");
-        postsRepository.save(post1);
+        if (postsRepository.count() == 0) {
+            Post post1 = new Post();
+            post1.setContent("## В Петербурге на берегу Финского залива прошла всероссийская акция \"Вода России\"\n" +
+                    "Акция \"Вода России\", проходящая в регионах страны в рамках национального проекта \"Экология\", состоялась в Петербурге на территории памятника природы \"Комаровский берег\" на берегу Финского залива. Триста волонтеров собрали 280 мешков мусора, очистив 3,5 км берега, передает корреспондент ТАСС.\n" +
+                    "Учащиеся колледжей, университетов, а также чиновники собирали мусор раздельно. Отходы были сгружены в мусоровоз, бункер которого состоит из двух частей, собранный мусор в нем не перемешивается, машину предоставила для акции компания \"Петро-Васт\".\n" +
+                    "Как рассказал ТАСС председатель комитета по природопользованию Петербурга Денис Беляев, большая часть мусора на берегу залива - это отходы, которые оставляют недобросовестные отдыхающие. \"Это хорошее желание - выехать куда-то на берег, ближе к природе и отдохнуть. Но, к сожалению, уровень экологической культуры не дотягивает. И очень часто после такого отдыха на берегу остаются привезенные с собой и брошенные пластиковые, бытовые и прочие отходы\", - рассказал он. Весомая часть мусора выбрасывается на берег волнами из залива. По словам Беляева, в Петербурге подобные акции по очистке берегов водных объектов проходят практически еженедельно, в том числе по инициативе горожан.\n" +
+                    "Холодная погода в Петербурге не помешала волонтерам очистить 3,5 км берега. Организаторы подготовили для них горячее питание и напитки, а в конце акции были названы имена самых активных участников.\n" +
+                    "Экологические акции \"Вода России\" начались по всей стране благодаря федеральной целевой программе \"Развитие водохозяйственного комплекса Российской Федерации в 2012-2020 годы\", с 2019 года они проходят в рамках федеральной программы \"Сохранение уникальных водных объектов\" национального проекта \"Экология\".");
+            post1.setTitle("Title of Post 1");
+            postsRepository.save(post1);
 
-        Post post2 = new Post();
-        post2.setContent("Content of Post 2");
-        post2.setTitle("Title of Post 2");
-        postsRepository.save(post2);
+            Post post2 = new Post();
+            post2.setContent(" ## Переработка\n" +
+                    "Переработку отходов следует отличать от утилизации. Целью переработки является превращение отходов во вторичное сырьё, энергию или продукцию с определёнными потребительскими свойствами.\n" +
+                    "Переработка отходов может включать или не включать их обработку — деятельность, направленную на изменение физического, химического или биологического состояния отходов для обеспечения последующих работ по обращению с отходами. Обработке подвергается множество извлекаемых из отходов материалов, включая стекло, бумагу, алюминий, асфальт, железо, ткани, различные виды пластика и органические отходы (источники многочисленных вредных веществ и даже бактерий и вирусов). В некоторых случаях отдельные процессы переработки отходов бывают технически нецелесообразны или экономически невыгодны из-за непомерно больших затрат материальных, транспортных, финансовых и человеческих ресурсов.\n" +
+                    "При переработке отходов могут образовываться отходы.");
+            post2.setTitle("Title of Post 2");
+            postsRepository.save(post2);
 
-        Post post3 = new Post();
-        post3.setContent("Content of Post 3");
-        post3.setTitle("Title of Post 3");
-        postsRepository.save(post3);
+            Post post3 = new Post();
+            post3.setContent(" ## Утилизация отходов\n" +
+                    "Утилизация отходов — использование отходов для производства товаров (продукции), выполнения работ, оказания услуг, включая повторное применение отходов, в том числе повторное применение отходов по прямому назначению (рециклинг), их возврат в производственный цикл после соответствующей подготовки (регенерация), а также извлечение полезных компонентов для их повторного применения (рекуперация);\n" +
+                    "> Под утилиза́цией отходов (от лат. utilis — полезный) понимается следующее:\n" +
+                    "> * использование отходов на различных стадиях их технологического цикла;\n" +
+                    "> * обеспечение вторичного использования или переработки отходов и отслуживших свой срок или забракованных изделий.\n" +
+                    "При проектировании современной продукции рассматривают её утилизируемость — комплекс показателей, обеспечивающих эффективную утилизацию отходов, образующихся при её производстве и эксплуатации и после вывода из обращения.\n" +
+                    "Таким образом, понятия утилизация и переработка пересекаются. Так, переработка отходов может включать их утилизацию в части вторичного использования, а утилизация может включать в себя переработку отходов в тех случаях, когда она технически возможна, технологически необходима или требуется законодательством. С другой стороны, утилизация не рассматривает переработку там, где отходы могут быть использованы в продукции напрямую, без переработки. По мнению некоторых специалистов, помимо вторичных ресурсов и отходов производства и потребления, утилизации также подлежат ресурсы, не находящие прямого применения.");
+            post3.setTitle("Title of Post 3");
+            postsRepository.save(post3);
 
-        Post post4 = new Post();
-        post4.setContent("Content of Post 4");
-        post4.setTitle("Title of Post 4");
-        postsRepository.save(post4);
+            Post post4 = new Post();
+            post4.setContent(" ## Рециклинг\n" +
+                    "Также не следует отождествлять переработку отходов с рециклингом (син. рециклизация). Термин рециклинг используется для обозначения процесса возвращения отходов в процессы техногенеза. Другими словами, рециклинг — это процесс, а переработка отходов — это деятельность состоящая из отраслей деятельности и множества различных процессов. В этом смысле рециклинг является одним из элементов утилизации отходов, которая в свою очередь является частью переработки отходов. Рециклинг отходов осуществляется повторным использованием отходов по тому же назначению, например стеклянных бутылок после их соответствующей безопасной обработки и маркировки (этикетирования), либо путём возврата отходов после соответствующей обработки в производственный цикл (например жестяных банок — в производство стали; макулатуры — в производство бумаги и картона и т. п.).");
+            post4.setTitle("Title of Post 4");
+            postsRepository.save(post4);
 
-        TypeWrapper glass = new TypeWrapper();
-        glass.setType(Type.Glass);
-        TypeWrapper cardboard = new TypeWrapper();
-        cardboard.setType(Type.Cardboard);
-        TypeWrapper plastic = new TypeWrapper();
-        plastic.setType(Type.Plastic);
+            Post post5 = new Post();
+            post5.setContent(" ## Сортировка отходов\n" +
+                    "Сортировка — это выбор компонентов из смешанных (не сортированных) уже образованных в результате сбора отходов.\n" +
+                    "Разделение и/или смешение отходов согласно определенным критериям на качественно различающиеся составляющие.\n" +
+                    "Сортировка отходов осуществляется на специализированных предприятиях, комплексах сортировки, сортировочных цехах, сортировочных линиях.\n" +
+                    "Подавляющее большинство сортировочных линий в мире являются ручными. Но также существуют и автоматизированные, на которых металлы отделяются магнитом, самая мелкая фракция отсеивается механически, мусор продувается в баллистическом сепараторе и разделяется на легкий и тяжелый. После этого оптическая система сортирует пластики по сортам и/или цвету. На высокоавтоматизированных линиях люди-операторы работают только на первом этапе сортировки, а именно отслеживают крупные или опасные для оборудования предметы (газовые баллоны и т. п.).\n" +
+                    "В России существует закон, запрещающий захоранивать некоторые полезные материалы, которые могут быть переработаны во вторичные компоненты. Однако запрет не действует, если, например, полезные материалы содержатся в составе твердых коммунальных отходов. Поэтому для правильной переработки необходимо, чтобы полезные отходы раздельно доезжали до сортировок и не смешивались в общей массе мусора.");
+            postsRepository.save(post5);
 
-        typeRepository.save(glass);
-        typeRepository.save(cardboard);
-        typeRepository.save(plastic);
 
-        MapMark mapMark1 = new MapMark();
-        mapMark1.setX(59.955413);
-        mapMark1.setY(30.337844);
-        mapMark1.setMaterialTypes(List.of(plastic));
-        mapMarkRepository.save(mapMark1);
+            Info info1 = new Info();
+            info1.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Plastic-recyc-01.svg/90px-Plastic-recyc-01.svg.png");
+            info1.setTitle("01 PET");
+            info1.setText("Полиэтилентерефталат (лавсан). Полиэстер, бутылки для напиткnов");
+            infoRepository.save(info1);
 
-        MapMark mapMark2 = new MapMark();
-        mapMark2.setX(59.981111);
-        mapMark2.setY(30.347844);
-        mapMark2.setMaterialTypes(List.of(cardboard));
-        mapMarkRepository.save(mapMark2);
+            Info info2 = new Info();
+            info2.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Plastic-recyc-02.svg/90px-Plastic-recyc-02.svg.png");
+            info2.setTitle("02 PEHD");
+            info2.setText("Полиэтилен высокой плотности (низкого давления). Пластиковые бутылки, пакеты, мусорные вёдра");
+            infoRepository.save(info2);
 
-        MapMark mapMark3 = new MapMark();
-        mapMark3.setX(59.956413);
-        mapMark3.setY(30.137844);
-        mapMark3.setMaterialTypes(List.of(glass));
-        mapMarkRepository.save(mapMark3);
+            Info info3 = new Info();
+            info3.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Plastic-recyc-03.svg/90px-Plastic-recyc-03.svg.png");
+            info3.setTitle("03 PVC");
+            info3.setText("Поливинилхлорид. Оконные рамы, бутылки для химических продуктов, покрытия для полов, изоляция (электротехника) электрических проводов");
+            infoRepository.save(info3);
 
-        MapMark mapMark4 = new MapMark();
-        mapMark4.setX(59.926413);
-        mapMark4.setY(30.135844);
-        mapMark4.setMaterialTypes(List.of(glass));
-        mapMarkRepository.save(mapMark4);
+            Info info4 = new Info();
+            info4.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Plastic-recyc-04.svg/90px-Plastic-recyc-04.svg.png");
+            info4.setTitle("04 PELD");
+            info4.setText("Полиэтилен низкой плотности (высокого давления). Пакеты, вёдра, трубы, крышки");
+            infoRepository.save(info4);
 
-        Info info1 = new Info();
-        info1.setImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Frecycle_sign1600.png&f=1&nofb=1");
-        info1.setTitle("Сдать мусор можно сюда!");
-        info1.setText("Я не знаю что писать");
-        infoRepository.save(info1);
+            Info info5 = new Info();
+            info5.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Plastic-recyc-05.svg/90px-Plastic-recyc-05.svg.png");
+            info5.setTitle("05 PP");
+            info5.setText("Полипропилен.	Автомобильные бамперы, внутренняя отделка автомобилей, корпуса электроинструмента, упаковка из-под шоколадок, макарон, пластиковые стаканчики");
+            infoRepository.save(info5);
 
-        Info info2 = new Info();
-        info2.setImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Frecycle_sign1600.png&f=1&nofb=1");
-        info2.setTitle("Сдать мусор можно сюда!");
-        info2.setText("Я не знаю что писать");
-        infoRepository.save(info2);
+            Info info6 = new Info();
+            info6.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Plastic-recyc-06.svg/84px-Plastic-recyc-06.svg.png");
+            info6.setTitle("06 PS");
+            info6.setText("Полистирол. Игрушки, одноразовая посуда, цветочные горшки, видеокассеты, чемоданы, одноразовые стаканчики");
+            infoRepository.save(info6);
 
-        Info info3 = new Info();
-        info3.setImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Frecycle_sign1600.png&f=1&nofb=1");
-        info3.setTitle("Сдать мусор можно сюда!");
-        info3.setText("Я не знаю что писать");
-        infoRepository.save(info3);
+            Info info7 = new Info();
+            info7.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Plastic-recyc-07.svg/84px-Plastic-recyc-07.svg.png");
+            info7.setTitle("07 0 (Other)");
+            info7.setText("Остальные виды пластика. Полиуретан, поликарбонат, полиамиды, полиакрилонитрил и др., биопластики");
+            infoRepository.save(info7);
+
+            Info info8 = new Info();
+            info8.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Plastic-recyc-09.svg/84px-Plastic-recyc-09.svg.png");
+            info8.setTitle("09 ABS");
+            info8.setText("АБС-пластик\tКорпуса мониторов/телевизоров и электроинструмента, кофеварки, сотовые телефоны, компьютерный пластик, распечатанные на 3D-принтере компоненты, которые не являются биопластиками, такими как PLA");
+            infoRepository.save(info8);
+
+            Info info9 = new Info();
+            info9.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Recycling-Code-20.svg/90px-Recycling-Code-20.svg.png");
+            info9.setTitle("20 PAP (PCB)");
+            info9.setText("Гофрированный картон. Коробки от бытовой техники, продуктов, косметики");
+            infoRepository.save(info9);
+
+            Info info10 = new Info();
+            info10.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Recycling-Code-21.svg/90px-Recycling-Code-21.svg.png");
+            info10.setTitle("21 PAP");
+            info10.setText("Прочий картон\tОткрытки, обложки книг, короб-упаковка");
+            infoRepository.save(info10);
+
+            Info info11 = new Info();
+            info11.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Recycling-Code-22.svg/90px-Recycling-Code-22.svg.png");
+            info11.setTitle("22 PAP");
+            info11.setText("Бумага. Журналы и газеты, конверты, бумажные пакеты, бумага для печати");
+            infoRepository.save(info11);
+
+            Info info12 = new Info();
+            info12.setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Recycling-Code-22.svg/90px-Recycling-Code-22.svg.png");
+            info12.setTitle("23 PBD (PPB)");
+            info12.setText("Вощёная бумага. Упаковка для почтовых отправлений или для декора букетов");
+            infoRepository.save(info12);
+        }
 
     }
 }
