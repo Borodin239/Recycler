@@ -27,4 +27,8 @@ public class PostService {
     public Optional<Post> findById(Long id) {
         return postsRepository.findById(id);
     }
+
+    public Long findCount() {
+        return postsRepository.count();
+    }
 }
