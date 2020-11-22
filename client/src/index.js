@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown'
 import axios from "axios";
+// created by flydzen
 
 function NavBtn(props) {
     return (
@@ -160,7 +161,7 @@ class Page extends React.Component {
                 break;
             case 1:
                 content = <div id="map" className="main-content w-col w-col-9">
-                            <iframe src="https://recyclemap.ru" allowFullScreen/>
+                            <iframe src="https://recyclemap.ru/spb" allowFullScreen/>
                           </div>;
                 break;
             case 2:
