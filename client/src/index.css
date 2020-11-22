@@ -98,6 +98,8 @@ iframe {
 .infoBlock img{
   display: flex;
   float: left;
+  height: 7rem;
+  width: 7rem;
 }
 
 .infoText{
