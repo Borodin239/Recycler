@@ -14,9 +14,19 @@ posts = [
 > Hello from post1
 >
 > Here you can learn about ecology""",
-         """ ## Title
+""" ## Title
 ---------
-> Hello from post1
+> Hello from post2
+>
+> Here you can learn about recycling""",
+""" ## Title
+---------
+> Hello from post3
+>
+> Here you can learn about recycling""",
+""" ## Title
+---------
+> Hello from post4
 >
 > Here you can learn about recycling"""]
 
