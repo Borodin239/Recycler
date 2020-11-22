@@ -1,9 +1,6 @@
 package ru.geniuses.recycler.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.geniuses.recycler.model.MapMark;
 import ru.geniuses.recycler.services.MapMarkService;
 
@@ -23,7 +20,7 @@ public class MapMarksRESTController {
     }
 
     @PostMapping(value = {"/", ""})
-    public MapMark addMapMark(MapMark mapMark) {
+    public MapMark addMapMark(@RequestBody MapMark mapMark) {
         return mapMarkService.save(mapMark);
     }
 }

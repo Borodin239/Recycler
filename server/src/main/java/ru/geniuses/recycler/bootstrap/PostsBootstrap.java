@@ -3,10 +3,8 @@ package ru.geniuses.recycler.bootstrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import ru.geniuses.recycler.model.MapMark;
-import ru.geniuses.recycler.model.Post;
-import ru.geniuses.recycler.model.Type;
-import ru.geniuses.recycler.model.TypeWrapper;
+import ru.geniuses.recycler.model.*;
+import ru.geniuses.recycler.repositories.InfoRepository;
 import ru.geniuses.recycler.repositories.MapMarkRepository;
 import ru.geniuses.recycler.repositories.PostsRepository;
 import ru.geniuses.recycler.repositories.TypeRepository;
@@ -19,12 +17,14 @@ public class PostsBootstrap implements CommandLineRunner {
     private final PostsRepository postsRepository;
     private final MapMarkRepository mapMarkRepository;
     private final TypeRepository typeRepository;
+    private final InfoRepository infoRepository;
 
     @Autowired
-    public PostsBootstrap(PostsRepository postsRepository, MapMarkRepository mapMarkRepository, TypeRepository typeRepository) {
+    public PostsBootstrap(PostsRepository postsRepository, MapMarkRepository mapMarkRepository, TypeRepository typeRepository, InfoRepository infoRepository) {
         this.postsRepository = postsRepository;
         this.mapMarkRepository = mapMarkRepository;
         this.typeRepository = typeRepository;
+        this.infoRepository = infoRepository;
     }
 
     @Override
@@ -83,6 +83,24 @@ public class PostsBootstrap implements CommandLineRunner {
         mapMark4.setY(30.135844);
         mapMark4.setMaterialTypes(List.of(glass));
         mapMarkRepository.save(mapMark4);
+
+        Info info1 = new Info();
+        info1.setImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Frecycle_sign1600.png&f=1&nofb=1");
+        info1.setTitle("Сдать мусор можно сюда!");
+        info1.setText("Я не знаю что писать");
+        infoRepository.save(info1);
+
+        Info info2 = new Info();
+        info2.setImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Frecycle_sign1600.png&f=1&nofb=1");
+        info2.setTitle("Сдать мусор можно сюда!");
+        info2.setText("Я не знаю что писать");
+        infoRepository.save(info2);
+
+        Info info3 = new Info();
+        info3.setImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmaxcdn.icons8.com%2FShare%2Ficon%2FLogos%2Frecycle_sign1600.png&f=1&nofb=1");
+        info3.setTitle("Сдать мусор можно сюда!");
+        info3.setText("Я не знаю что писать");
+        infoRepository.save(info3);
 
     }
 }
