@@ -183,21 +183,26 @@
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 2px 0 15px -2px #a5a5a5;
+  font-family: Inter, sans-serif;
 }
 
-.post-heading {
-  margin: 0px 0px 30px;
-  padding-top: 0px;
-  font-family: Inter, sans-serif;
+.post-block h2 {
   font-size: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
   font-weight: 600;
+  line-height: 1.5;
 }
 
-.post-text {
-  margin-bottom: 20px;
-  font-family: Inter, sans-serif;
+.post-block hr {
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+.post-block p, .post-block li {
   font-size: 14px;
 }
+
 
 .post-search {
   height: 30px;
