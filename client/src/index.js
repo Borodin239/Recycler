@@ -40,10 +40,11 @@ class NavBar extends React.Component {
 
 
 function Post(props) {
+    //<a href="#" className="button w-button">Получить</a>
     return (
         <div className="post-block">
             <ReactMarkdown>{props.content}</ReactMarkdown>
-            <a href="#" className="button w-button">Получить</a>
+
         </div>
     )
 }
